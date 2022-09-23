@@ -1,0 +1,60 @@
+@import "../../mixin";
+@import "../../variable";
+
+.todo-input {
+    background-color: transparent;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    width: 100%;
+}
+
+.todo-input,
+.todo-input::placeholder {
+    color: $dark-input;
+}
+
+.todo-input:focus {
+    color: $dark-hover-text;
+}
+
+.add-todo {
+    @include flexableFlex(row, space-between, center);
+    width: 100%;
+    padding: 22px 24px;
+    gap: 25px;
+    background: $dark-comp-bg;
+
+    box-shadow: $shadows;
+    border-radius: 5px;
+
+    .circle-icon {
+        background-image: url(../public/images/circle-regular.svg);
+    }
+
+    form {
+        width: calc(100% - 25px);
+    }
+}
+
+body.light {
+    .add-todo .circle-icon {
+        background-image: url(../public/images/circle-regular-light.svg);
+    }
+
+    .App {
+        .add-todo {
+            background: $light-comp-bg;
+        }
+
+        .add-todo form .todo-input,
+        .add-todo form .todo-input::placeholder {
+            color: $light-input;
+        }
+
+        .add-todo form .todo-input:focus {
+            color: $light-hover-text;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@import "../../mixin";
+@import "../../variable";
+@import "../../components/Tasks/tasks";
+
+.TaskList {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0px;
+    gap: 10px;
+    background: $dark-comp-bg;
+
+    box-shadow: $shadows;
+    border-radius: 5px;
+
+    .task-list-info {
+        color: $dark-basic-text;
+
+        .clear-list:hover {
+            color: $dark-hover-text;
+            cursor: pointer;
+        }
+    }
+}
+
+body.light .App {
+    .TaskList {
+        background: $light-comp-bg;
+
+        .task-list-info {
+            color: $light-basic-text;
+
+            .clear-list:hover {
+                color: $light-hover-text;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 960px) {}

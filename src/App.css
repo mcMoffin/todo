@@ -1,38 +1,500 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 62.5%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 25px;
+  color: #ffffff;
+}
+
+.header h1 {
+  font-family: Josefin Sans;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0.38em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.header .color-mode {
+  width: 18px;
+  height: 18px;
+  background-image: url(../public/images/icon-sun.svg);
+}
+
+.header .color-mode.light {
+  background-image: url(../public/images/icon-moon.svg);
+}
+
+@media only screen and (min-width: 960px) {
+  .header {
+    height: 40px;
+  }
+  .header h1 {
+    font-size: 40px;
+  }
+  .header .color-mode {
+    width: 18px;
+    height: 18px;
+    background-image: url(../public/images/icon-sun.svg);
+  }
+  .header .color-mode.light {
+    background-image: url(../public/images/icon-moon.svg);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@media only screen and (min-width: 960px) {
+  .header .color-mode {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+.btn {
+  background-size: contain;
+  background: none;
+  background-position: center;
+  background-size: contain;
+  display: block;
+  border: none;
+}
+
+.todo-input {
+  background-color: transparent;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  width: 100%;
+}
+
+.todo-input,
+.todo-input::-webkit-input-placeholder {
+  color: #4d5066;
+}
+
+.todo-input,
+.todo-input:-ms-input-placeholder {
+  color: #4d5066;
+}
+
+.todo-input,
+.todo-input::-ms-input-placeholder {
+  color: #4d5066;
+}
+
+.todo-input,
+.todo-input::placeholder {
+  color: #4d5066;
+}
+
+.todo-input:focus {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.add-todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 22px 24px;
+  gap: 25px;
+  background: #25273c;
+  -webkit-box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.add-todo .circle-icon {
+  background-image: url(../public/images/circle-regular.svg);
+}
+
+.add-todo form {
+  width: calc(100% - 25px);
+}
+
+body.light .add-todo .circle-icon {
+  background-image: url(../public/images/circle-regular-light.svg);
+}
+
+body.light .App .add-todo {
+  background: #ffffff;
+}
+
+body.light .App .add-todo form .todo-input,
+body.light .App .add-todo form .todo-input::-webkit-input-placeholder {
+  color: #d2d3db;
+}
+
+body.light .App .add-todo form .todo-input,
+body.light .App .add-todo form .todo-input:-ms-input-placeholder {
+  color: #d2d3db;
+}
+
+body.light .App .add-todo form .todo-input,
+body.light .App .add-todo form .todo-input::-ms-input-placeholder {
+  color: #d2d3db;
+}
+
+body.light .App .add-todo form .todo-input,
+body.light .App .add-todo form .todo-input::placeholder {
+  color: #d2d3db;
+}
+
+body.light .App .add-todo form .todo-input:focus {
+  color: #4d5066;
+}
+
+.task {
+  width: 100%;
+  height: 68px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #e4e5f1;
+  padding: 22px 24px;
+  gap: 24px;
+  border-bottom: 1px solid #393a4c;
+}
+
+.task .task-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 25px;
+  width: calc(100% - 24px);
+}
+
+.task .task-info p {
+  display: block;
+  width: calc(100% - 49px);
+  text-align: left;
+}
+
+.task .delete-task {
+  background-image: url(../public/images/icon-cross.svg);
+  width: 18px;
+  height: 18px;
+}
+
+.task:hover {
+  cursor: pointer;
+}
+
+.task:hover p {
+  color: white;
+  font-weight: 700;
+}
+
+.task:hover .task-info .circle-icon {
+  background-image: url(../public/images/circle-hover.svg);
+}
+
+.task.completed {
+  color: #4d5066;
+  text-decoration: line-through;
+}
+
+.task.completed .task-info .circle-icon {
+  background-image: url(../public/images/circle-active.svg);
+}
+
+body.light .App .TaskList .task {
+  border-bottom: 1px solid #d2d3db;
+  color: #484b6a;
+}
+
+body.light .App .TaskList .task .task-info .circle-icon {
+  background-image: url(../public/images/circle-regular-light.svg);
+}
+
+body.light .App .TaskList .task .delete-task {
+  background-image: url(../public/images/icon-cross-light.svg) !important;
+}
+
+body.light .App .task:hover p {
+  color: #4d5066;
+}
+
+body.light .App .task:hover .task-info .circle-icon {
+  background-image: url(../public/images/circle-hover.svg);
+}
+
+body.light .App .task.completed {
+  color: #d2d3db;
+  text-decoration: line-through;
+}
+
+body.light .App .task.completed .task-info .circle-icon {
+  background-image: url(../public/images/circle-active.svg);
+}
+
+body.light .App .task.completed .delete-task {
+  background-image: url(../public/images/icon-cross.svg);
+}
+
+.TaskList {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  padding: 0px;
+  gap: 10px;
+  background: #25273c;
+  -webkit-box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.TaskList .task-list-info {
+  color: #4d5066;
+}
+
+.TaskList .task-list-info .clear-list:hover {
+  color: white;
+  cursor: pointer;
+}
+
+body.light .App .TaskList {
+  background: #ffffff;
+}
+
+body.light .App .TaskList .task-list-info {
+  color: #9394a5;
+}
+
+body.light .App .TaskList .task-list-info .clear-list:hover {
+  color: #4d5066;
+}
+
+.sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 100%;
+  height: 68px;
+  padding: 22px 15%;
+  background-color: #25273c;
+  -webkit-box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 20px 70px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.sort div {
+  font-size: 15px;
+  line-height: 15px;
+  letter-spacing: -0.015em;
+}
+
+.sort .sort-option:active {
+  color: #3a7bfd;
+}
+
+.sort .sort-option:hover {
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+}
+
+.sort .sort-option.active-select {
+  color: #3a7bfd;
+}
+
+.web {
+  display: none;
+}
+
+body.light .App .sort {
+  background-color: #ffffff;
+}
+
+body.light .App .sort div:hover {
+  color: #4d5066;
+}
+
+@media only screen and (min-width: 960px) {
+  .sort {
+    width: calc(100%- 134px);
+    max-width: 158px;
+    height: 15px;
+    padding: 0px;
   }
-  to {
-    transform: rotate(360deg);
+  .sort div {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .web {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .cell {
+    display: none;
   }
 }
+
+* {
+  font-family: 'Josefin Sans';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.015em;
+  text-align: left;
+}
+
+body {
+  font-family: sans-serif;
+  background: #000 no-repeat url(../public/images/bg-desktop-dark.jpg);
+  background-position: top center;
+  background-size: calc(100vw + 175px);
+  color: #4d5066;
+}
+
+.circle-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url(../public/images/circle-regular.svg);
+  background-repeat: no-repeat;
+}
+
+.hide {
+  display: none !important;
+}
+
+body.light {
+  background-color: #fff;
+  background-image: url(../public/images/bg-desktop-light.jpg);
+  color: #9394a5;
+}
+
+.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  max-width: 1440px;
+  max-height: 800px;
+  padding: 40px 20px;
+}
+
+.App .task-list-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 68px;
+  padding: 22px 24px;
+}
+
+.App footer {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+@media only screen and (min-width: 960px) {
+  #root {
+    padding: 0 10%;
+  }
+  .App {
+    gap: 32px;
+    padding: 83px 8px 10px;
+  }
+  .App .task-list-info {
+    height: 48px;
+    padding: 0px 24px;
+    gap: 67px;
+    isolation: isolate;
+  }
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import {RootProvider} from './context/RootContext'
+import Header from './components/Header/Header';
+import NewTodo from './components/AddTodo/AddTodo';
+import TaskList from './components/TaskList/TaskList';
+import Sort from './components/Sort/Sort';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default function App() {
 
-export default App;
+	return (
+		<div className="App">
+			<RootProvider >
+				<Header />
+				<NewTodo />
+				<TaskList />
+				<Sort cName={"sort cell"}/>
+				<footer>Drag and drop to reorder list</footer>
+			</RootProvider>
+		</div>
+	);
+}

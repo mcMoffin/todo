@@ -1,0 +1,6 @@
+@mixin flexableFlex($direction, $alignXaxis, $alignYaxis) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $alignXaxis;
+    align-items: $alignYaxis;
+}

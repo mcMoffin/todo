@@ -1,0 +1,92 @@
+@import "reset";
+@import "mixin";
+@import "variable";
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import "./components/Header/headder";
+@import "./components/Button/button";
+@import "./components/AddTodo/addTodo";
+@import "./components/TaskList/taskList";
+@import "./components/Sort/sort";
+
+* {
+  font-family: 'Josefin Sans';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.015em;
+  text-align: left;
+}
+
+body {
+  font-family: sans-serif;
+  background: #000 no-repeat url(../public/images/bg-desktop-dark.jpg);
+  background-position: top center;
+  background-size: calc(100vw + 175px);
+  color: $dark-basic-text;
+}
+
+.circle-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url(../public/images/circle-regular.svg);
+  background-repeat: no-repeat;
+}
+
+.hide {
+  display: none !important;
+}
+
+body.light {
+  background-color: #fff;
+  background-image: url(../public/images/bg-desktop-light.jpg);
+  color: $light-basic-text;
+}
+
+.App {
+  @include flexableFlex(column, center, center);
+
+  gap: 15px;
+  max-width: 1440px;
+  max-height: 800px;
+
+  padding: 40px 20px;
+
+  .task-list-info {
+    @include flexableFlex(row, space-between, center);
+    height: 68px;
+    padding: 22px 24px;
+  }
+
+  footer {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+}
+
+@media only screen and (min-width: 960px) {
+  #root {
+    padding: 0 10%;
+  }
+
+
+
+  .App {
+    gap: 32px;
+    padding: 83px 8px 10px;
+
+    .task-list-info {
+      height: 48px;
+      padding: 0px 24px;
+      gap: 67px;
+      isolation: isolate;
+    }
+  }
+}
+
+@media only screen and (min-width: 1350px) {
+  body {
+  }
+}
