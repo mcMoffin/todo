@@ -15,7 +15,6 @@ export default function App() {
 				<NewTodo />
 				<TaskList />
 				<Sort cName={"sort cell"}/>
-				{/* <footer>Drag and drop to reorder list</footer> */}
 			</RootProvider>
 		</div>
 	);
