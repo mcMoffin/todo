@@ -4,8 +4,8 @@ const RootContext = createContext({});
 
 export function RootProvider({ children }) {
 	const [list, setList] = useState([]);
-	
-	useEffect(() => { getTodos() }, []);
+
+	useEffect(() => {getTodos();}, []);
 	
 	function fetcher() {
 		if (localStorage.getItem('todos') === null) {
@@ -29,13 +29,15 @@ export function RootProvider({ children }) {
 	};
 
 	function deleteTodos(index) {
-		let todos = fetcher();
-		Array.isArray(index) ? todos = todos.filter((e, i) => !index.includes(i)) : todos = todos.filter((e, i) => i !== index);
+		Array.isArray(index) ? index.map(num => list.pop(e=> e[num])) : list.pop(e=> e[index])
 
-		setList(todos);
-		localStorage.setItem('todos', JSON.stringify(todos));
+		setList(list);
+		localStorage.setItem('todos', JSON.stringify(list));
 	};
 
+	function updater(todo) {
+		
+	}
 	return <RootContext.Provider value={{ list, saveLocalTodos, deleteTodos}}>
 		{children}
 	</RootContext.Provider>;

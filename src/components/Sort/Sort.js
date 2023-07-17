@@ -1,10 +1,10 @@
 import { useContext, useState, useEffect} from 'react';
 import $ from "jquery";
 
-export default function Sort({cName}) {
+export default function Sort() {
 
 	return (
-		<div className={cName}>
+		<div className="sort">
 			<div className=" all sort-option active-select" onClick={event => {
 				$(".task").removeClass("hide");
 

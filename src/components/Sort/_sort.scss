@@ -33,10 +33,6 @@
     }
 }
 
-.web {
-    display: none;
-}
-
 body.light .App .sort {
     background-color: $light-comp-bg;
 
@@ -56,13 +52,5 @@ body.light .App .sort {
             font-size: 15px;
             font-weight: 700;
         }
-    }
-
-    .web {
-        display: flex;
-    }
-
-    .cell {
-        display: none;
     }
 }

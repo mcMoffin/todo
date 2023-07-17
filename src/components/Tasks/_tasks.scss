@@ -11,6 +11,12 @@
     gap: 24px;
     border-bottom: 1px solid $dark-border;
 
+    .delete-task {
+        background-image: url(../public/images/icon-cross.svg);
+        width: 18px;
+        height: 18px;
+    }
+
     .task-info {
         @include flexableFlex(row, space-between, center);
         gap: 25px;
@@ -19,14 +25,9 @@
         p {
             display: block;
             width: calc(100% - 49px);
+            min-height: fit-content;
             text-align: left;
         }
-    }
-
-    .delete-task {
-        background-image: url(../public/images/icon-cross.svg);
-        width: 18px;
-        height: 18px;
     }
 }
 

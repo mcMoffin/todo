@@ -4,11 +4,11 @@ import RootContext from '../../context/RootContext'
 import Tasks from '../Tasks/Tasks';
 import Sort from "../Sort/Sort";
 
-const TaskList = () => {
+const TaskList = ({screanWidth,breakpoint}) => {
 	const { list } = useContext(RootContext);
 	const { deleteTodos } = useContext(RootContext);
+	const { saveLocalTodos } = useContext(RootContext);
 	const [activityCounter, setActivityCounter] = useState();
-
 	useEffect(()=> counterUpdater())
 
 	let counterUpdater = () => {
@@ -17,12 +17,19 @@ const TaskList = () => {
 
 	return (
 		<div className="TaskList">
-			{list.map((e, i) => {
-				return <Tasks index={i} txt={e} deleteAction={() => deleteTodos(i)} onClick={event => {
-					$(event.currentTarget).toggleClass("completed");
-					$(event.currentTarget).toggleClass("active");
-					counterUpdater();
-				}} />;
+			{list.map((e, index) => {
+				return <Tasks
+					id={e.id}
+					className={e.completed ? "completed" : false}
+					txt={e.task}
+					deleteAction={() => deleteTodos(index)}
+					onClick={event => {
+						// saveLocalTodos({id: e.id, task: e.task, completed: !e.completed});
+						$(event.currentTarget).toggleClass("completed");
+						$(event.currentTarget).toggleClass("active");
+						counterUpdater();
+					}}
+				/>;
 			})}
 
 			<div className='task-list-info'>
@@ -30,12 +37,11 @@ const TaskList = () => {
 					<p>{activityCounter} items left</p>
 				</div>
 
-				<Sort cName="sort web" />
+				{screanWidth > breakpoint ? <Sort /> : false}
 
 				<div className='clear-list' onClick={ ()=> {
-					let list = [...$(".completed")].map(e => Number($(e).attr("data-key")));
-					deleteTodos(list);
-					$(".task").removeClass("completed");
+					let taskIds = [...$(".completed")].map(e => Number(e.id));
+					deleteTodos(taskIds);
 				}}>
 					<p>Clear Completed</p>
 				</div>

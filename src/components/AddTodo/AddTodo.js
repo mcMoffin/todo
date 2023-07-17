@@ -4,17 +4,18 @@ import RootContext from '../../context/RootContext';
 const NewTodo = () => {
 	const [currentTask, setCurrentTask] = useState('');
     const { saveLocalTodos } = useContext(RootContext);
-
+    const { list } = useContext(RootContext);
+	const amount = list.length;
 	const addTodo = (e) => {
 		e.preventDefault();
-		saveLocalTodos(currentTask);
+		saveLocalTodos({id: amount, task: currentTask, completed: false});
 		setCurrentTask('');
     };
 
     return (        
 		<div className="add-todo">
 			<div className='circle-icon'></div>
-			<form onSubmit={(e) => addTodo(e)}>
+			<form onSubmit={(e)=> addTodo(e)}>
 				<input
 					type="text"
 					className="todo-input"

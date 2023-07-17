@@ -79,6 +79,7 @@ a {
 }
 
 .btn {
+  cursor: pointer;
   background-size: contain;
   background: none;
   background-position: center;
@@ -205,6 +206,12 @@ body.light .App .add-todo form .todo-input:focus {
   border-bottom: 1px solid #393a4c;
 }
 
+.task .delete-task {
+  background-image: url(../public/images/icon-cross.svg);
+  width: 18px;
+  height: 18px;
+}
+
 .task .task-info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -226,13 +233,10 @@ body.light .App .add-todo form .todo-input:focus {
 .task .task-info p {
   display: block;
   width: calc(100% - 49px);
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   text-align: left;
-}
-
-.task .delete-task {
-  background-image: url(../public/images/icon-cross.svg);
-  width: 18px;
-  height: 18px;
 }
 
 .task:hover {
@@ -372,10 +376,6 @@ body.light .App .TaskList .task-list-info .clear-list:hover {
   color: #3a7bfd;
 }
 
-.web {
-  display: none;
-}
-
 body.light .App .sort {
   background-color: #ffffff;
 }
@@ -394,14 +394,6 @@ body.light .App .sort div:hover {
   .sort div {
     font-size: 15px;
     font-weight: 700;
-  }
-  .web {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-  .cell {
-    display: none;
   }
 }
 
